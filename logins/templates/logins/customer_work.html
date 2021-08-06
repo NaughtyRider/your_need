@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Successful</title>
+    <style>
+      #dark{ color: red;
+      font-size:20px;
+      }
+      #dark:hover{color:white;
+
+      font-size: 22px;
+      background-color: skyblue;
+      }
+      .pt-10{
+      padding-top:10%; }
+
+      #demo{
+      display:none;}
+      #have{
+      display:none;}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+
+
+    </script>
+
+
+    <span class="border border-dark d-block p-2 bg-primary text-white  align-self-center ">
+      <h2 class="text-center">  YOUR NEED IS ON YOUR CLICK</h2>
+    </span>
+    <div class="d-flex  justify-content-start">
+        Hello&nbsp;<strong>{{ name }}</strong>
+    </div>
+    <div class="d-flex  justify-content-end">
+        Email:&nbsp;<strong>{{ email }}</strong>
+    </div>
+    <div class="pt-10 pl-5 ">
+        {% if status == 0 %}
+    <form action="/logins/customer_done/" method="post">
+        {% csrf_token %}
+         <div class="form-group ">
+             <label for="h_work"> Select your need:</label>
+             <select id="h_work" class="form-control" name="work">
+         {% for w in work_lis %}
+         <option value="{{ w.work }}"> {{ w.work }} </option>
+         {% endfor %}
+        </select>
+         </div>
+        <input type="hidden" name="wstatus" id="w_status" value="1">
+        <input type="hidden" name="wemail" id="w_email" value="{{ email }}">
+
+         <button type="submit" class="btn btn-primary mt-2">Request a Helper</button>
+    </form>
+
+        {% elif rel_hid == None %}
+        <h3> Your request not yet accepted by any one, please wait...</h3>
+        <a href="{% url 'logins:index' %}"><button type="button" class="btn btn-secondary">Home</button></a>
+        {% else %}
+        <h2> Helper assigned {{ rel_hid }} </h2>
+        <form action="{% url 'logins:done_cus' %}" method="post">
+            {% csrf_token %}
+        <input type="hidden" name="wstatus" id="wstatus" value="1">
+        <input type="hidden" name="wemail" id="wemail" value="{{ email }}">
+        <input type="submit" class="btn btn-secondary" value="Click if help have reached" >
+        </form>
+
+        {% endif %}
+        </div>
+
+  </body>
+</html>

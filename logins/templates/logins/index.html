@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Your need is on your click</title>
+    <style>
+      #dark{ color: red;
+      font-size:20px;
+      }
+      #dark:hover{color:white;
+
+      font-size: 22px;
+      background-color: skyblue;
+      }
+      .pt-10{
+      padding-top:10%; }
+
+      #demo{
+      display:none;}
+      #have{
+      display:none;}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+
+
+    </script>
+
+
+    <span class="border border-dark d-block p-2 bg-primary text-white  align-self-center ">
+      <h2 class="text-center">  YOUR NEED IS ON YOUR CLICK</h2>
+    </span>
+    <div class="pt-10 ">
+    <div class="d-flex justify-content-center ">
+
+      <form>
+
+
+    <div onmouseenter="document.getElementById('demo').style.display='block'" onmouseleave="document.getElementById('demo').style.display='none'">
+
+      <div class="form-control bg-primary text-white" >
+        New User
+  </div>
+     <div class="form-control" id="demo" >
+    <a href="customer_signup/">
+        <p> Customer</p>
+    </a>
+    <a href="helper_signup/">
+       <p> Helper</p>
+    </a>
+  </div>
+    </div>
+  <div onmouseenter="document.getElementById('have').style.display='block'" onmouseleave="document.getElementById('have').style.display='none'">
+
+
+        <div class="form-control bg-primary text-white mt-3" >
+
+        Already have an account
+  </div>
+     <div class="form-control" id="have" >
+     <a href="customer_signin/">
+       <p > Customer</p>
+     </a>
+     <a href="helper_signin/">
+       <p> Helper</p>
+     </a>
+  </div>
+    </div>
+
+
+</form>
+    </div>
+        </div>
+
+  </body>
+</html>
